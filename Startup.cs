@@ -1,4 +1,7 @@
-﻿namespace ComicsApi
+﻿using ComicsApi.Model.Responses;
+using ComicsApi.Services;
+
+namespace ComicsApi
 {
     public class Startup
     {
@@ -12,6 +15,8 @@
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<ComicsService>();
+            services.AddSingleton<List<RatedComic>>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
